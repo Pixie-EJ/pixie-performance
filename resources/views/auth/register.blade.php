@@ -52,11 +52,20 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleRepeatPassword"
+                                class="col-form-label text-md-right">{{ __('Confirme a senha') }}</label>
+                            <input type="password" name="password_confirmation"
+                                class="form-control form-control-user" id="exampleRepeatPassword" required
+                                autocomplete="new-password" placeholder="Confirme a senha">
                         </div>                  
+                        <div class="card-footer bg-green d-flex align-items-center justify-content-center m-0">
+                            <button type="submit">
+                                <h3 class="color-light m-0">Cadastrar</h3>
+                            </button>
+                        </div>
                     </form>
-                </div>
-                <div class="card-footer bg-green d-flex align-items-center justify-content-center m-0">
-                    <h3 class="color-light m-0">Cadastrar</h3>
                 </div>
             </div>
         </div>
