@@ -8,11 +8,11 @@
                 <div class="card-header bg-light">
                     <h3 class="color-green m-0 text-uppercase">Login</h3>
                 </div>
-                <div class="card-body bg-grey">
+                <div class="card-body rounded-bottom bg-light p-0">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="form-group flex-column">
-                            <label for="email" class="col-md-4 col-form-label color-light text-md-left">Email</label>
+                        <div class="form-group flex-column pt-2 px-2">
+                            <label for="email" class="col-md-4 col-form-label color-grey text-md-left">Email</label>
                             <div class="col-md-12">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -24,8 +24,8 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group flex-column">
-                            <label for="password" class="col-md-4 col-form-label text-md-left color-light">Senha</label>
+                        <div class="form-group flex-column pb-2 px-2">
+                            <label for="password" class="col-md-4 col-form-label text-md-left color-grey">Senha</label>
                             <div class="col-md-12">
                                 <input id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
@@ -49,10 +49,10 @@
                 </div>
             </div>
         </div> --}}
-        <div class="card-footer bg-green d-flex align-items-center justify-content-center m-0">
-            <button type="submit">
-                <h3 class="color-light m-0">Login</h3>
-            </button>
+        <div class="d-flex align-items-center justify-content-center">
+            <a class="w-100 bg-green p-2 rounded-bottom" type="submit">
+                <h3 class="color-light m-0 text-center">Login</h3>
+            </a>
             {{-- @if (Route::has('password.request'))
                                             <a class="btn btn-link" href="{{ route('password.request') }}">
             {{ __('Forgot Your Password?') }}
