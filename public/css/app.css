@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
-
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -48,8 +47,56 @@
   background-color: #00B894 !important;
 }
 
+.bg-black {
+  background-color: #2D3436 !important;
+}
+
+.bg-grey {
+  background-color: #636E72 !important;
+}
+
+.bg-light-grey {
+  background-color: #B2BEC3 !important;
+}
+
+.bg-light {
+  background-color: #DFE6E9 !important;
+}
+
+.bg-red {
+  background-color: #D63031 !important;
+}
+
+.bg-blue {
+  background-color: #0984E3 !important;
+}
+
 .color-green {
   color: #00B894;
+}
+
+.color-black {
+  color: #2D3436;
+}
+
+.color-grey {
+  color: #636E72;
+}
+
+.color-light-grey {
+  color: #B2BEC3;
+}
+
+.color-light {
+  color: #DFE6E9;
+}
+
+.color-red {
+  color: #D63031;
+}
+
+.color-blue {
+  color: #0984E3;
 }
 
 html {
