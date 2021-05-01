@@ -50,9 +50,9 @@
             </div>
         </div> --}}
         <div class="d-flex align-items-center justify-content-center">
-            <a class="w-100 bg-green p-2 rounded-bottom" type="submit">
+            <button class="w-100 bg-green p-2 rounded-bottom" type="submit">
                 <h3 class="color-light m-0 text-center">Login</h3>
-            </a>
+            </button>
             {{-- @if (Route::has('password.request'))
                                             <a class="btn btn-link" href="{{ route('password.request') }}">
             {{ __('Forgot Your Password?') }}
