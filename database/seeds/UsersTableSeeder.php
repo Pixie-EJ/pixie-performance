@@ -4,13 +4,14 @@ use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
-        factory(\App\User::class, 10)->create();
+        $user = factory(\App\User::class)->make();
+
+        $enterprise = \App\Enterprise::inRandomOrder()->first(); 
+        $user->enterprises()->associate($enterprise);
+
+        $user->save();
     }
 }
