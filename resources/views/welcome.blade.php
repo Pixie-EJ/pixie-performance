@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="bg-light">
-    <div class="container pb-5">
+    <div class="container py-5">
         <div class="row align-items-center">
             <div class="col-md-6 col-sm-12">
                 <div class="d-flex align-items-center justify-content-center">

@@ -101,21 +101,66 @@
 }
 
 .sidebar {
+  position: relative;
   margin-top: 0;
   width: 20%;
-  height: 100vh;
+  height: auto;
 }
 
-.sidebar li ul {
+.sidebar ul li {
   font-size: 24px;
+}
+
+li {
+  list-style: none;
 }
 
 .ul-active {
   background-color: #636E72;
 }
 
-.home {
-  
+.sidebar-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-home-title { 
+  font-size: 12px !important;
+}
+
+.card-home-subtitle { 
+  font-size: 20px !important;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    visibility: hidden;
+    margin-top: 0px;
+    height: 0;
+    width: 100%;
+  }
+
+  .sidebar-container {
+    flex-direction: column;
+  }
+
+  .sidebar-active {
+    height: auto;
+    visibility:visible;
+  }
+
+  .sidebar ul li {
+    font-size: 18px;
+  }
+
+  .card-home-title { 
+    font-size: 10px !important;
+  }
+
+  .card-home-subtitle { 
+    font-size: 14px !important;
+  }
+
 }
 
 html {
