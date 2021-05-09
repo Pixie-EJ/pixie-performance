@@ -1,17 +1,17 @@
 @auth
 <nav class="navbar navbar-expand-md navbar-light bg-green shadow-sm">
     <div class="container d-flex justify-content-between">
-        <button class="navbar-toggler" onclick="sidebarToggle()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler border-0" onclick="sidebarToggle()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a href="{{ url('/') }}">
             <img src="{{ asset('assets/pixie-logo-sm-white.svg') }}" style="width: 60%"/>
         </a>          
         <div>
             <ul class="navbar-nav ml-auto">          
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                           user <span class="caret"></span>
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
