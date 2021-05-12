@@ -115,7 +115,7 @@ li {
   list-style: none;
 }
 
-.ul-active {
+.li-active {
   background-color: #636E72;
 }
 
@@ -130,6 +130,10 @@ li {
 
 .card-home-subtitle { 
   font-size: 20px !important;
+}
+
+.sidebar-list li:hover {
+  background-color: #00B894;
 }
 
 @media (max-width: 768px) {
@@ -296,7 +300,6 @@ a {
 
 a:hover {
   color: #1d68a7;
-  text-decoration: underline;
 }
 
 a:not([href]):not([class]) {

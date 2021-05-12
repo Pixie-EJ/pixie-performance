@@ -4,7 +4,6 @@
     <div class="container mb-5">
         <div class="d-flex justify-content-between">
             <h2 class="py-4">Home</h2>
-            <h2 class="py-4">Empresa: {{ $enterprise->name }}</h2>
             <button class="btn bg-blue my-4">
                 <span class="color-light">Lançar pontos</span>    
             </button>

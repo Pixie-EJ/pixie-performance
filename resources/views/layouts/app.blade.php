@@ -38,19 +38,5 @@
 
     </div>
 
-    <script>
-        let sidebar_active = 0;
-        function sidebarToggle() {
-            if(sidebar_active % 2 == 0) {
-                $('.sidebar').addClass('sidebar-active')
-                $('.sidebar').removeClass('sidebar')
-            } else {
-                $('.sidebar-active').addClass('sidebar')
-                $('.sidebar-active').removeClass('sidebar-active')
-            }
-            sidebar_active++;
-        }
-    </script>
-
 </body>
 </html>
