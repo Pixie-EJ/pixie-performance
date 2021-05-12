@@ -7,3 +7,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/events/create', 'HomeController@new_event')->name('new_event');

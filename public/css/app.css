@@ -136,7 +136,7 @@ li {
   background-color: #00B894;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .sidebar {
     visibility: hidden;
     margin-top: 0px;
