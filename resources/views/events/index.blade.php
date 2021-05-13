@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-@if(true)
+@if()
     <script>
         $(document).ready( function () {
             toastr.success('Evento cadastrado com sucesso!')
-            
         } );
     </script> 
 @endif
