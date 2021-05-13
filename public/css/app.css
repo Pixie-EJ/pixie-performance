@@ -6,7 +6,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- 
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -98,6 +97,11 @@
 
 .color-blue {
   color: #0984E3;
+}
+
+.toast-success {
+  background-color: #008f72fa !important;
+  opacity: 1 !important;
 }
 
 .sidebar {
@@ -2917,7 +2921,7 @@ fieldset:disabled a.btn {
 .btn-success:not(:disabled):not(.disabled):active:focus,
 .btn-success:not(:disabled):not(.disabled).active:focus,
 .show > .btn-success.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(86, 202, 135, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(86, 202, 135);
 }
 
 .btn-info {

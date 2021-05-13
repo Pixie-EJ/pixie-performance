@@ -3,11 +3,12 @@
 @section('content')
     <div class="container mb-5">
         <div class="d-flex justify-content-start align-items-center">
-            <a href="/home"><i class="mb-2 mx-2 fas fa-arrow-left color-black"></i></a>
+            <a href="/events"><i class="mb-2 mx-2 fas fa-arrow-left color-black"></i></a>
             <h2 class="py-4">Novo evento</h2>
         </div>
         <div class="mx-3">
-            <form>
+            <form method="post">
+                @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nome do evento</label>
                   <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

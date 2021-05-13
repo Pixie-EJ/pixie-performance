@@ -29,9 +29,4 @@ class HomeController extends Controller
 
         return view('home', compact('enterprise'));
     }
-
-    public function new_event()
-    {
-        return view('events.create');
-    }
 }
