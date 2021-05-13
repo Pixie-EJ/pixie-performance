@@ -24,6 +24,6 @@ class User extends Authenticatable
 
     public function enterprises()
     {
-        return $this->belongsTo('App\Enterprise', 'fk_enterprises_enterprise_id', 'enterprise_id');
+        return $this->belongsTo('App\Enterprise', 'enterprise_id', 'enterprise_id');
     }
 }
