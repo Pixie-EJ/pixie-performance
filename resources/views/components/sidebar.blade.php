@@ -1,3 +1,4 @@
+
 <div class="sidebar bg-black"> 
     <ul class="sidebar-list" style="padding: 0">
         <a onclick="enableSidebar(1)" href="/home"><li class="color-light m-0 py-3 px-4 sidebar-item-1">Home</li></a>
