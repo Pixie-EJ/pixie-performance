@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if (!empty($mensagem))
+        <script>
+            toastr.success('Evento criado com sucesso!')
+        </script>
+    @endif
     <div class="container mb-5">
         <div class="d-flex justify-content-between">
             <h2 class="py-4">Eventos</h2>
@@ -10,8 +15,8 @@
             @csrf
         </div>
         <div class="mt-4">
-            <div class="table-responsive">
-                <table id="events_table" class="table table-striped table-bordered text-center">
+            <div class="table-responsive table-overflow shadow-sm">
+                <table id="events-table" class="table table-striped table-bordered text-center display">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -27,7 +32,7 @@
                             <th scope="row">{{ $event->id }}</th>
                             <td>{{ $event->name }}</td>
                             <td>{{ $event->category_id }}</td>
-                            <td>{{ $event->created_at }}</td>
+                            <td>{{ $event->started_at }}</td>
                             {{-- <td><i class="fas fa-ellipsis-h"></i></td> --}}
                         </tr>
                         @endforeach
@@ -35,12 +40,7 @@
                 </table>
             </div>
         </div>
-    </div>
-    <script>
-    $(document).ready( function () {
-        $('#events_table').DataTable();
-    } );
-    </script> 
+    </div> 
 @endsection
 
 

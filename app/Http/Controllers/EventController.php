@@ -17,7 +17,8 @@ class EventController extends Controller
         $events = Event::query()
             ->orderBy('id', 'desc')
             ->get();
-        return view('events.index', compact('events'));
+        $mensagem = $request->session()->get('mensagem');
+        return view('events.index', compact('events', 'mensagem'));
     }
 
     /**
@@ -40,10 +41,12 @@ class EventController extends Controller
     {
         $data = $request->all();
         $event = Event::create($data);
-        $events = Event::query()
-            ->orderBy('id', 'desc')
-            ->get();
-        return view('events.index', compact('events'));
+        $request->session()
+            ->flash(
+                'mensagem',
+                "Evento criado com sucesso!"
+            );
+        return redirect()->route('events.index');
     }
 
     /**
