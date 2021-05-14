@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@if()
-    <script>
-        $(document).ready( function () {
-            toastr.success('Evento cadastrado com sucesso!')
-        } );
-    </script> 
-@endif
-
     <div class="container mb-5">
         <div class="d-flex justify-content-between">
             <h2 class="py-4">Eventos</h2>

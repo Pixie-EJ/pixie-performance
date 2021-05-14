@@ -7,16 +7,16 @@
             <h2 class="py-4">Novo evento</h2>
         </div>
         <div class="mx-3">
-            <form method="post">
+            <form action="{{ route('events.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Nome do evento</label>
-                  <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <label for="name">Nome do evento</label>
+                  <input name="name" class="form-control" id="name">
                 </div>
                 <div class="form-group d-flex">
                     <div class="mr-3">
                         <label for="exampleInputPassword1">Data de início</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1">
+                        <input name="started_at" type="date" class="form-control" id="exampleInputPassword1">
                     </div>
                     <div>
                         <label for="exampleInputPassword1">Horário</label>
@@ -26,7 +26,7 @@
                 <div class="form-group d-flex">
                     <div class="mr-3">
                         <label for="exampleInputPassword1">Data de término</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1">
+                        <input name="ended_at" type="date" class="form-control" id="exampleInputPassword1">
                     </div>
                     <div>
                         <label for="exampleInputPassword1">Horário</label>
@@ -44,7 +44,6 @@
                         <h5 class="m-0 color-light">Salvar</h5>
                     </button>
                 </div>
-                
             </form>  
         </div>  
     </div>
