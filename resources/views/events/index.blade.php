@@ -18,73 +18,19 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Data</th>
-                            <th scope="col">Ações</th>
+                            {{-- <th scope="col">Ações</th> --}}
                         </tr>
                     </thead>
                     <tbody data-page-length='8'>
+                        @foreach ($events as $event)
                         <tr>
-                            <th scope="row">144</th>
-                            <td>PHP com POO</td>
-                            <td>Domingo Legal</td>
-                            <td>21/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
+                            <th scope="row">{{ $event->id }}</th>
+                            <td>{{ $event->name }}</td>
+                            <td>{{ $event->category_id }}</td>
+                            <td>{{ $event->created_at }}</td>
+                            {{-- <td><i class="fas fa-ellipsis-h"></i></td> --}}
                         </tr>
-                        <tr>
-                            <th scope="row">143</th>
-                            <td>Laravel</td>
-                            <td>Sábado Animado</td>
-                            <td>20/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">142</th>
-                            <td>EJs de Tecnologia</td>
-                            <td>Evento do Núcleo</td>
-                            <td>15/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">141</th>
-                            <td>PHP com POO</td>
-                            <td>Domingo Legal</td>
-                            <td>14/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">140</th>
-                            <td>Laravel</td>
-                            <td>Sábado Animado</td>
-                            <td>13/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">139</th>
-                            <td>EJs de Tecnologia</td>
-                            <td>Evento do Núcleo</td>
-                            <td>08/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">138</th>
-                            <td>PHP com POO</td>
-                            <td>Domingo Legal</td>
-                            <td>07/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">137</th>
-                            <td>Laravel</td>
-                            <td>Sábado Animado</td>
-                            <td>06/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">136</th>
-                            <td>EJs de Tecnologia</td>
-                            <td>Evento do Núcleo</td>
-                            <td>01/03/2021</td>
-                            <td><i class="fas fa-ellipsis-h"></i></td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
