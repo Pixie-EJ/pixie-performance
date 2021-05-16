@@ -71,7 +71,7 @@
         $('#date-end-error-msg').hide()
         $('#name-error-msg').hide() 
 
-        let name_str = document.getElementById('start_time').value.length
+        let name_str = document.getElementById('name').value.length
         let start = document.getElementById('start_time').value
         let start_str = start.toString().length
         let end = document.getElementById('end_time').value
@@ -84,7 +84,7 @@
             $('#name-error-msg').show() 
         if(start_date < actual_date || start_str == 0)
             $('#date-start-error-msg').show()
-        if(end_date < start_date || end_str == 0) 
+        if(end_date <= start_date || end_str == 0) 
             $('#date-end-error-msg').show()
 
         if (start_date > actual_date && start_str != 0 &&

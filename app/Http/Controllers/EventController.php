@@ -15,7 +15,7 @@ class EventController extends Controller
     public function index(Request $request)
     {
         $events = Event::query()
-            ->orderBy('id', 'desc')
+            ->orderBy('started_at', 'desc')
             ->get();
         $mensagem = $request->session()->get('mensagem');
         return view('events.index', compact('events', 'mensagem'));
