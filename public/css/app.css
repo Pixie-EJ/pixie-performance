@@ -6,7 +6,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- 
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -100,11 +99,14 @@
   color: #0984E3;
 }
 
+.toast-success {
+  background-color: #008f72fa !important;
+  opacity: 1 !important;
+}
+
 .sidebar {
-  position: relative;
-  margin-top: 0;
+  min-height: 100%;
   width: 20%;
-  height: auto;
 }
 
 .sidebar ul li {
@@ -115,13 +117,19 @@ li {
   list-style: none;
 }
 
-.ul-active {
+.li-active {
   background-color: #636E72;
 }
+
+.table-overflow {
+  max-height:450px;
+  overflow-y:auto;
+} 
 
 .sidebar-container {
   display: flex;
   flex-direction: row;
+  min-height: 100vh;
 }
 
 .card-home-title { 
@@ -132,7 +140,11 @@ li {
   font-size: 20px !important;
 }
 
-@media (max-width: 768px) {
+.sidebar-list li:hover {
+  background-color: #00B894;
+}
+
+@media (max-width: 767px) {
   .sidebar {
     visibility: hidden;
     margin-top: 0px;
@@ -296,7 +308,6 @@ a {
 
 a:hover {
   color: #1d68a7;
-  text-decoration: underline;
 }
 
 a:not([href]):not([class]) {
@@ -2914,7 +2925,7 @@ fieldset:disabled a.btn {
 .btn-success:not(:disabled):not(.disabled):active:focus,
 .btn-success:not(:disabled):not(.disabled).active:focus,
 .show > .btn-success.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(86, 202, 135, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(86, 202, 135);
 }
 
 .btn-info {
