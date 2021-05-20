@@ -144,6 +144,10 @@ li {
   background-color: #00B894;
 }
 
+.fa-arrow-left {
+  transform: scale(1.5);
+}
+
 @media (max-width: 767px) {
   .sidebar {
     visibility: hidden;
