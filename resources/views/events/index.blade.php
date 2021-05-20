@@ -11,7 +11,7 @@
         </div>
         <div class="mt-4">
             <div class="table-responsive table-overflow shadow-sm">
-                <table id="events-table" class="table table-striped table-bordered text-center display">
+                <table id="events-table" class="display table table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
