@@ -1,17 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (!empty($mensagem))
-        <script>
-            toastr.success('Evento criado com sucesso!')
-        </script>
-    @endif
     <div class="container mb-5">
         <div class="d-flex justify-content-between">
             <h2 class="py-4">Eventos</h2>
-            <button onclick="window.location.href='/events/create'" class="btn bg-blue my-4">
-                <span class="color-light">Novo evento</span>
-            </button>
+            <a href="{{ route('events.create') }}" class="btn bg-blue my-4 d-flex align-items-center">
+                <span class="color-light m-0 p-0">Novo evento</span>
+            </a>
             @csrf
         </div>
         <div class="mt-4">
@@ -22,7 +17,8 @@
                             <th scope="col">ID</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Categoria</th>
-                            <th scope="col">Data</th>
+                            <th scope="col">Data inicial</th>
+                            <th scope="col">Data final</th>
                             {{-- <th scope="col">Ações</th> --}}
                         </tr>
                     </thead>
@@ -33,6 +29,7 @@
                             <td>{{ $event->name }}</td>
                             <td>{{ $event->category_id }}</td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->started_at)) }}</td>
+                            <td>{{ date("d/m/Y H:i", strtotime($event->ended_at)) }}</td>
                             {{-- <td><i class="fas fa-ellipsis-h"></i></td> --}}
                         </tr>
                         @endforeach
@@ -41,6 +38,11 @@
             </div>
         </div>
     </div> 
+    @if (!empty($mensagem))
+        <script>
+            toastr.success('Evento criado com sucesso!')
+        </script>
+    @endif
 @endsection
 
 
