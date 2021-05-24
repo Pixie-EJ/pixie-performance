@@ -57,9 +57,10 @@
                 </div>
                 <div class="form-group col-md-6 col-sm-12">
                     <label>Categoria*</label>
-                    <select class="form-control form-control-md col-md-6 col-sm-12" required>
-                        <option>Sábado animado</option>
-                        <option>Domingo legal</option>
+                    <select name="categories_id" class="form-control col-md-6 col-sm-12" required>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="d-flex justify-content-end">

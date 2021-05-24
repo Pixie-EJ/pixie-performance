@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Categories;
 use App\Event;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,7 @@ class EventController extends Controller
             ->orderBy('started_at', 'desc')
             ->get();
         $mensagem = $request->session()->get('mensagem');
-        return view('events.index', compact('events', 'mensagem'));
+        return view('events.index', compact('events', 'mensagem', 'category'));
     }
 
     /**
@@ -28,8 +28,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        $categories = getCategories();
-        dd($categories)
+        $categories = Categories::query()
+            ->orderBy('name', 'asc')
+            ->get();
         return view('events.create', compact('categories'));
     }
 
@@ -41,6 +42,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        // $category = $request->get('categories_id');
         $data = $request->all();
         $event = Event::create($data);
         $request->session()
@@ -96,10 +98,10 @@ class EventController extends Controller
         //
     }
 
-    private function getCategories()
+    public function getCategories()
     {
-        return $categories = Categories::query()
-            ->orderBy('name', 'desc')
+        return Categories::query()
+            ->orderBy('name', 'asc')
             ->get();
     } 
 }
