@@ -28,7 +28,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        $categories = getCategories();
+        dd($categories)
+        return view('events.create', compact('categories'));
     }
 
     /**
@@ -93,4 +95,11 @@ class EventController extends Controller
     {
         //
     }
+
+    private function getCategories()
+    {
+        return $categories = Categories::query()
+            ->orderBy('name', 'desc')
+            ->get();
+    } 
 }
