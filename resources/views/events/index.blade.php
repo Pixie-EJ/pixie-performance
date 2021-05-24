@@ -27,7 +27,17 @@
                         <tr>
                             <th scope="row">{{ $event->id }}</th>
                             <td>{{ $event->name }}</td>
-                            <td>{{ $event->categories_id }}</td>
+                            <td>
+                            @if ($event->categories_id == 1)
+                            Aulas    
+                            @elseif ($event->categories_id == 2)
+                            Eventos
+                            @elseif ($event->categories_id == 3)
+                            Tasks
+                            @elseif ($event->categories_id == 4)
+                            Cursos Extras    
+                            @endif
+                            </td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->started_at)) }}</td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->ended_at)) }}</td>
                             {{-- <td><i class="fas fa-ellipsis-h"></i></td> --}}

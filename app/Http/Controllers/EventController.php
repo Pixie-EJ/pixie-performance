@@ -18,7 +18,7 @@ class EventController extends Controller
             ->orderBy('started_at', 'desc')
             ->get();
         $mensagem = $request->session()->get('mensagem');
-        return view('events.index', compact('events', 'mensagem', 'category'));
+        return view('events.index', compact('events', 'mensagem'));
     }
 
     /**
@@ -98,10 +98,4 @@ class EventController extends Controller
         //
     }
 
-    public function getCategories()
-    {
-        return Categories::query()
-            ->orderBy('name', 'asc')
-            ->get();
-    } 
 }
