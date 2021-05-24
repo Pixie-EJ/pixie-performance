@@ -27,7 +27,7 @@
                         <tr>
                             <th scope="row">{{ $event->id }}</th>
                             <td>{{ $event->name }}</td>
-                            <td>{{ $event->category_id }}</td>
+                            <td>{{ $event->categories_id }}</td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->started_at)) }}</td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->ended_at)) }}</td>
                             {{-- <td><i class="fas fa-ellipsis-h"></i></td> --}}

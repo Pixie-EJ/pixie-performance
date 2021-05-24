@@ -13,4 +13,5 @@ class Categories extends Model
     public function enterprises()
     {
         return $this->hasMany('App\Enterprise');
+    }
 }
