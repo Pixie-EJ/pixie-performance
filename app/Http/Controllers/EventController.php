@@ -95,7 +95,7 @@ class EventController extends Controller
      */
     public function destroy($event)
     {
-        $event = \App\Event::findorfail($event);
+        $event = \App\Event::FindOrFail($event);
         $event->delete();
 
         return redirect('events.index')->with("mensagem","Evento excluido com sucesso");
