@@ -9,17 +9,17 @@ Pixie-Performance é um sistema da Pixie-EJ para a atribuição de "Pixie points
 ## Organização do repositório
 Para todos os projetos da Pixie será utilizado uma organização de branches no git:
 
-#### --> Master
+#### --> master
    É onde será salvo o código finalizado, só existe uma e não pode enviar commits diretamente para esta branch
 
-#### --> Development
+#### --> mevelopment
    Será o branch onde features e fixes serão enviadas por meio de pull requests depois de resolvido os conflitos, só existe uma e não pode enviar commits diretamente para esta branch
 
-#### --> Fix/nome_do_branch
-   Branch destinada a resolver bugs no código, podem existir várias, quando finalizado o bugfix, precisa criar uma pull request para "develop"
+#### --> fix/nome_do_branch
+   Branch destinada a resolver bugs no código, podem existir várias, quando finalizado o bugfix, precisa criar uma pull request para "development"
 
-#### --> Feature/nome_do_branch
-   Branch destinada a adicionar novas funções ou modificações no código, podem existir várias, quando finalizado a feature, precisa criar uma pull request para "develop"
+#### --> feature/nome_do_branch
+   Branch destinada a adicionar novas funções ou modificações no código, podem existir várias, quando finalizado a feature, precisa criar uma pull request para "development"
 
 ## Organização da workfolder
 
@@ -39,48 +39,55 @@ Após isso basta apenas abrir o bash do git, ou o terminal do linux na pasta cri
    
    <img src="https://i.imgur.com/1M2DyjR.png" width="" height="" alt="PIXIE">
    
-   * Utilizamos o checkout para selecionar o branch staging (desenvolvimento)
+   * Utilizamos o checkout para selecionar o branch development (desenvolvimento)
 
       ```sh
-      git checkout staging
+      git checkout development
       ```
    
-Feito isso, é necessário criar um branch separado para cada modificação que será feita, pois é necessário aprovação para enviar códigos para o staging
+Feito isso, é necessário criar um branch separado para cada modificação que será feita, pois é necessário aprovação para enviar códigos para o development
 
    * O branch é criado e selecionado desta maneira
 
        ```sh
-       git branch (nome do branch, ex: task-luan)
+       git branch (nome do branch, ex: fix/sidebar_text)
        ```
       
    * Logo após selecionamos o branch criado com:
    
        ```sh
-       git checkout (nome do branch, ex: task-luan)
+       git checkout (nome do branch, ex: fix/sidebar_text)
        ```
  
  Pronto! seu repositório local está preparado e organizado
  
  ## Atualizando o repositório local
  
- Normalmente quando uma task é completada e o merge/rebase é feito com o staging, o seu branch staging local ficará desatualizado em relação ao principal, para resolver isso é necessário atualizar seu repositório local com alguns comandos
+ Normalmente quando uma task é completada e o merge/rebase é feito com o development, o seu branch development local ficará desatualizado em relação ao principal, para resolver isso é necessário atualizar seu repositório local com alguns comandos
  
    ```sh
-   git checkout staging
+   git checkout development
    ```
    
    ```sh
    git pull
    ```
    
-Evite fazer branches sem atualizar o staging local, pois atualizar evita o risco de conflitos na hora de realizar um pull-request
+Evite fazer branches sem atualizar o development local, pois atualizar evita o risco de conflitos na hora de realizar um pull-request.
 
 ## Enviando alterações
 
 Para enviar as alterações é recomendavel explicar o que foi feito nelas quando se faz um commit, utilize este template para as alterações:
 
    ```sh
-   (nome do arquivo editado, ou local): "este é um exemplo de um commit"
+   (fix ou feature): "este é um exemplo de um commit"
+   --> "este é um exemplo de um commit, este é um exemplo de um commit, este é um exemplo de um commit, este é um exemplo de um commit"
+   ```
+   
+Também é possível incluir o nome do arquivo junto do template separados por uma barra(opcional):
+   
+   ```sh
+   (fix ou feature/nome do arquivo): "este é um exemplo de um commit"
    --> "este é um exemplo de um commit, este é um exemplo de um commit, este é um exemplo de um commit, este é um exemplo de um commit"
    ```
 
