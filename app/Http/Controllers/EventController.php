@@ -90,12 +90,15 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($event)
     {
-        //
+        $event = \App\Event::findorfail($event);
+        $event->delete();
+
+        return redirect('events.index')->with("mensagem","Evento excluido com sucesso");
     }
 
 }
