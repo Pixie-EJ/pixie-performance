@@ -12,14 +12,14 @@ Para todos os projetos da Pixie será utilizado uma organização de branches no
 #### --> master
    É onde será salvo o código finalizado, só existe uma e não pode enviar commits diretamente para esta branch
 
-#### --> mevelopment
+#### --> development
    Será o branch onde features e fixes serão enviadas por meio de pull requests depois de resolvido os conflitos, só existe uma e não pode enviar commits diretamente para esta branch
 
-#### --> fix/nome_do_branch
-   Branch destinada a resolver bugs no código, podem existir várias, quando finalizado o bugfix, precisa criar uma pull request para "development"
+#### --> fix/branch_name
+   Branch destinada a resolver bugs no código, podem existir várias, quando finalizado o bugfix, precisa criar uma pull request para "development". O nome das branches são escritos em inglês
 
-#### --> feature/nome_do_branch
-   Branch destinada a adicionar novas funções ou modificações no código, podem existir várias, quando finalizado a feature, precisa criar uma pull request para "development"
+#### --> feature/branch_name
+   Branch destinada a adicionar novas funções ou modificações no código, podem existir várias, quando finalizado a feature, precisa criar uma pull request para "development". O nome das branches são escritos em inglês
 
 ## Organização da workfolder
 
