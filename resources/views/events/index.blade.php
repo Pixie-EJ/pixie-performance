@@ -19,7 +19,7 @@
                             <th scope="col">Categoria</th>
                             <th scope="col">Data inicial</th>
                             <th scope="col">Data final</th>
-                            {{-- <th scope="col">Ações</th> --}}
+                            <th scope="col">Ações</th>
                         </tr>
                     </thead>
                     <tbody data-page-length='8'>
@@ -40,7 +40,15 @@
                             </td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->started_at)) }}</td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->ended_at)) }}</td>
-                            {{-- <td><i class="fas fa-ellipsis-h"></i></td> --}}
+                            <td class="text-center dropdown">
+                                <button type="button" class="btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Visualizar evento</a>
+                                    <a class="dropdown-item" href="#">Excluir evento</a>
+                                </div>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
