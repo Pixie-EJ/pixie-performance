@@ -46,7 +46,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#showEventModal">Visualizar evento</button>
-                                    <a class="dropdown-item" href="#">Excluir evento</a>
+                                    <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#deleteEventModal">Excluir evento</button>
                                 </div>
                             </td>
                         </tr>
@@ -84,6 +84,23 @@
           </div>
         </div>
     </div>
+
+    <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="event-id-delete"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a id="delete-event" type="button" class="btn btn-danger">Excluir</a>
+            </div>
+          </div>
+        </div>
+    </div>
     
 @endsection
 
@@ -101,6 +118,7 @@
             document.getElementById('event-category').innerHTML = event.categories_id
             document.getElementById('event-date-start').innerHTML = event.started_at
             document.getElementById('event-date-end').innerHTML = event.ended_at
+            document.getElementById('event-id-delete').innerHTML = "Tem certeza que deseja excluir o evento " + event.id + "?"
         }
     </script>
 @endsection

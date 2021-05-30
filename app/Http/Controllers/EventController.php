@@ -97,7 +97,6 @@ class EventController extends Controller
     {
         $event = \App\Event::findOrFail($event);
         $event->delete();
-
         return redirect('events.index')->with("mensagem","Evento excluido com sucesso");
     }
 
