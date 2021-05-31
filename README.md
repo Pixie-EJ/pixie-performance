@@ -15,10 +15,10 @@ Para todos os projetos da Pixie será utilizado uma organização de branches no
 #### --> development
    Será o branch onde features e fixes serão enviadas por meio de pull requests depois de resolvido os conflitos, só existe uma e não pode enviar commits diretamente para esta branch
 
-#### --> fix/branch_name
+#### --> fix/branch-name
    Branch destinada a resolver bugs no código, podem existir várias, quando finalizado o bugfix, precisa criar uma pull request para "development". O nome das branches são escritos em inglês
 
-#### --> feature/branch_name
+#### --> feature/branch-name
    Branch destinada a adicionar novas funções ou modificações no código, podem existir várias, quando finalizado a feature, precisa criar uma pull request para "development". O nome das branches são escritos em inglês
 
 ## Organização da workfolder
@@ -50,13 +50,13 @@ Feito isso, é necessário criar um branch separado para cada modificação que 
    * O branch é criado e selecionado desta maneira
 
        ```sh
-       git branch (nome do branch, ex: fix/sidebar_text)
+       git branch (nome do branch, ex: fix/sidebar-text)
        ```
       
    * Logo após selecionamos o branch criado com:
    
        ```sh
-       git checkout (nome do branch, ex: fix/sidebar_text)
+       git checkout (nome do branch, ex: fix/sidebar-text)
        ```
  
  Pronto! seu repositório local está preparado e organizado
@@ -77,18 +77,16 @@ Evite fazer branches sem atualizar o development local, pois atualizar evita o r
 
 ## Enviando alterações
 
-Para enviar as alterações é recomendavel explicar o que foi feito nelas quando se faz um commit, utilize este template para as alterações:
+Para enviar as alterações é recomendavel explicar o que foi feito nelas quando se faz um commit, utilize este template para as alterações, sendo o corpo do commit opcional:
 
    ```sh
-   (fix ou feature): "este é um exemplo de um commit"
-   --> "este é um exemplo de um commit, este é um exemplo de um commit, este é um exemplo de um commit, este é um exemplo de um commit"
+   (tipo do commit): "descrição"
    ```
    
-Também é possível incluir o nome do arquivo junto do template separados por uma barra(opcional):
+Também é possível incluir o nome do arquivo junto do template separados por uma barra (opcional):
    
    ```sh
-   (fix ou feature/nome do arquivo): "este é um exemplo de um commit"
-   --> "este é um exemplo de um commit, este é um exemplo de um commit, este é um exemplo de um commit, este é um exemplo de um commit"
+   (tipo do commit /nome do arquivo): "descrição"
    ```
 
 Após tudo pronto, pode enviar seu novo branch com as alterações utilizando o push
