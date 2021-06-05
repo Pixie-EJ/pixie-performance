@@ -72,7 +72,10 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Categories::query()
+            ->orderBy('name', 'asc')
+            ->get();
+        return view('events.edit', compact('categories'));
     }
 
     /**
@@ -84,7 +87,7 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
