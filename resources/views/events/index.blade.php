@@ -47,7 +47,7 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#showEventModal">Visualizar evento</button>
                                     <a href="{{ route('events.edit', $event->id) }}" class="btn btn-primary dropdown-item">Editar evento</a>
-                                    <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#deleteEventModal">Excluir evento</button>
+                                    <a class="btn btn-primary dropdown-item" role="button" data-toggle="modal" data-target="#deleteEventModal" onclick="eventDelete({{ $event->id }})" >Excluir evento</a>
                                 </div>
                             </td>
                         </tr>
@@ -96,8 +96,12 @@
               </button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a id="delete-event" type="button" class="btn btn-danger">Excluir</a>
+                <form method="POST" id="eventDeleteForm" action="">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button id="delete-event" type="submit" class="btn btn-danger">Excluir</button>
+                </form>
             </div>
           </div>
         </div>
@@ -120,6 +124,16 @@
             document.getElementById('event-date-start').innerHTML = event.started_at
             document.getElementById('event-date-end').innerHTML = event.ended_at
             document.getElementById('event-id-delete').innerHTML = "Tem certeza que deseja excluir o evento " + event.id + "?"
+        }
+
+        function eventDelete(id){
+           alert(id)
+           let route1 = "{{route("+"'"+"events.destroy"+"'"+","
+           let route2 = ")}}"
+           let finalRoute = route1 + id + route2;
+
+           alert(finalRoute)
+           $('#eventDeleteForm').attr("action", finalRoute)
         }
     </script>
 @endsection
