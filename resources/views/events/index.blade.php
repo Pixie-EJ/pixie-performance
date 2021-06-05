@@ -46,6 +46,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#showEventModal">Visualizar evento</button>
+                                    <a href="{{ route('events.edit', $event->id) }}" class="btn btn-primary dropdown-item">Editar evento</a>
                                     <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#deleteEventModal">Excluir evento</button>
                                 </div>
                             </td>
