@@ -46,7 +46,8 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#showEventModal">Visualizar evento</button>
-                                    <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#deleteEventModal">Excluir evento</button>
+                                    <a href="{{ route('events.edit', $event->id) }}" class="btn btn-primary dropdown-item">Editar evento</a>
+                                    <a id="deleteEventButton" class="btn btn-primary dropdown-item" role="button" data-toggle="modal" data-target="#deleteEventModal" data-url="{{route('events.destroy', $event->id)}}">Excluir evento</a>
                                 </div>
                             </td>
                         </tr>
@@ -85,8 +86,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="deleteEventModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="event-id-delete"></h5>
@@ -95,8 +96,12 @@
               </button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a id="delete-event" type="button" class="btn btn-danger">Excluir</a>
+                <form method="POST" id="eventDeleteForm" action="">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button id="delete-event" type="submit" class="btn btn-danger">Excluir</button>
+                </form>
             </div>
           </div>
         </div>
@@ -105,12 +110,18 @@
 @endsection
 
 @section('scripts')
-    @if (!empty($mensagem))
+    @if (!empty($msgCreate))
         <script>
             toastr.success('Evento criado com sucesso!')
         </script>
     @endif
+    @if (!empty($msgDelete))
+        <script>
+            toastr.success('Evento excluído com sucesso!')
+        </script>
+    @endif
     <script>
+
         function viewEvent(event) {
             let eventStartDate = convertDate(event.started_at)
             let eventEndDate = convertDate(event.ended_at)
@@ -122,10 +133,19 @@
             document.getElementById('event-date-end').innerHTML = eventEndDate
             document.getElementById('event-id-delete').innerHTML = "Tem certeza que deseja excluir o evento " + event.id + "?"
         }
+
         function convertDate(date) {
             let p = date.split(/\D/g)
             return [p[2],p[1],p[0]].join("/") + " " + [p[3],p[4]].join(":")
         }
+
+        $(document).click(function (e) {
+            if($(e.target).is('#deleteEventButton')) {
+                let target = $(e.target)
+                let route = target.data('url')
+                $('#eventDeleteForm').attr("action", route)
+            }
+        })
     </script>
 @endsection
 

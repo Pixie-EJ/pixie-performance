@@ -17,8 +17,9 @@ class EventController extends Controller
         $events = Event::query()
             ->orderBy('started_at', 'desc')
             ->get();
-        $mensagem = $request->session()->get('mensagem');
-        return view('events.index', compact('events', 'mensagem'));
+        $msgCreate = $request->session()->get('msgCreate');
+        $msgDelete = $request->session()->get('msgDelete');
+        return view('events.index', compact('events', 'msgCreate', 'msgDelete'));
     }
 
     /**
@@ -47,7 +48,7 @@ class EventController extends Controller
         $event = Event::create($data);
         $request->session()
             ->flash(
-                'mensagem',
+                'msgCreate',
                 "Evento criado com sucesso!"
             );
         return redirect()->route('events.index');
@@ -72,7 +73,10 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Categories::query()
+            ->orderBy('name', 'asc')
+            ->get();
+        return view('events.edit', compact('categories'));
     }
 
     /**
@@ -84,7 +88,7 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -97,7 +101,7 @@ class EventController extends Controller
     {
         $event = \App\Event::findOrFail($event);
         $event->delete();
-        return redirect('events.index')->with("mensagem","Evento excluido com sucesso");
+        return redirect()->route('events.index')->with("msgDelete","Evento excluido com sucesso");
     }
 
 }
