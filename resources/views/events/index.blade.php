@@ -123,13 +123,20 @@
     <script>
 
         function viewEvent(event) {
+            let eventStartDate = convertDate(event.started_at)
+            let eventEndDate = convertDate(event.ended_at)
             document.getElementById('event-id').innerHTML = "Evento #" + event.id
             document.getElementById('event-name').innerHTML = event.name
             document.getElementById('event-description').innerHTML = event.description
             document.getElementById('event-category').innerHTML = event.categories_id
-            document.getElementById('event-date-start').innerHTML = event.started_at
-            document.getElementById('event-date-end').innerHTML = event.ended_at
+            document.getElementById('event-date-start').innerHTML = eventStartDate
+            document.getElementById('event-date-end').innerHTML = eventEndDate
             document.getElementById('event-id-delete').innerHTML = "Tem certeza que deseja excluir o evento " + event.id + "?"
+        }
+
+        function convertDate(date) {
+            let p = date.split(/\D/g)
+            return [p[2],p[1],p[0]].join("/") + " " + [p[3],p[4]].join(":")
         }
 
         $(document).click(function (e) {
@@ -139,7 +146,6 @@
                 $('#eventDeleteForm').attr("action", route)
             }
         })
-
     </script>
 @endsection
 
