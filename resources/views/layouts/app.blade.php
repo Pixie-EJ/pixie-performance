@@ -11,74 +11,64 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/datatables.min.js') }}" defer></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <script src="toastr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+    <script src="https://cdn.datatables.net/plug-ins/1.10.22/sorting/date-eu.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.22/sorting/chinese-string.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.22/filtering/type-based/accent-neutralise.js"></script> 
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
+    <link href="toastr.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
+    
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-green shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('assets/pixie-logo-sm-white.svg') }}" style="width: 60%"/>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('login') }}">Login</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('home') }}">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
+        @component('components.navbar')@endcomponent
+        @guest
+        <main class="py-0">
             @yield('content')
         </main>
+        @endguest
+
+        @auth
+        <div class="sidebar-container">
+            @component('components.sidebar')@endcomponent
+            @yield('content')
+        </div>
+        @endauth
     </div>
+    
+    <script> 
+        $(document).ready( function () {
+            $('#events-table').DataTable({
+                scrollY: "500px",
+                columnDefs: [
+                    // { orderable: false, targets: [3,4]},
+                    { type: "date-eu", targets: [3,4] },
+                    { type: "chinese-string", targets: [1, 2] }
+                ],
+                order: [[1, "asc"]],
+                language: {
+                    url:
+                        "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+                }
+            });
+        });
+    </script>
+
+    @yield('scripts')
+
 </body>
 </html>

@@ -1,77 +1,121 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<img src="https://i.imgur.com/bjCwde7.png" width="180px" height="180px" alt="PIXIE">
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# Pixie-Performance
+Gerenciador de pontos pixie performance
+
+## Função
+Pixie-Performance é um sistema da Pixie-EJ para a atribuição de "Pixie points" para os integrantes
+
+## Organização do repositório
+Para todos os projetos da Pixie será utilizado uma organização de branches no git:
+
+#### --> master
+   É onde será salvo o código finalizado, só existe uma e não pode enviar commits diretamente para esta branch
+
+#### --> development
+   Será o branch onde features e fixes serão enviadas por meio de pull requests depois de resolvido os conflitos, só existe uma e não pode enviar commits diretamente para esta branch
+
+#### --> fix/branch-name
+   Branch destinada a resolver bugs no código, podem existir várias, quando finalizado o bugfix, precisa criar uma pull request para "development". O nome das branches são escritos em inglês
+
+#### --> feature/branch-name
+   Branch destinada a adicionar novas funções ou modificações no código, podem existir várias, quando finalizado a feature, precisa criar uma pull request para "development". O nome das branches são escritos em inglês
+
+## Organização da workfolder
+
+Primeiro é necessário clonar o repositório para sua workfolder
+
+   ```sh
+   git clone https://github.com/Pixie-EJ/pixie-performance (nome da pasta)
+   ```
+
+Após isso basta apenas abrir o bash do git, ou o terminal do linux na pasta criada e selecionar o branch de desenvolvimento
+
+   * Esse comando lista todos os branches disponíveis
+
+      ```sh
+      git branch -a
+      ```
+   
+   <img src="https://i.imgur.com/1M2DyjR.png" width="" height="" alt="PIXIE">
+   
+   * Utilizamos o checkout para selecionar o branch development (desenvolvimento)
+
+      ```sh
+      git checkout development
+      ```
+   
+Feito isso, é necessário criar um branch separado para cada modificação que será feita, pois é necessário aprovação para enviar códigos para o development
+
+   * O branch é criado e selecionado desta maneira
+
+       ```sh
+       git branch (nome do branch, ex: fix/sidebar-text)
+       ```
+      
+   * Logo após selecionamos o branch criado com:
+   
+       ```sh
+       git checkout (nome do branch, ex: fix/sidebar-text)
+       ```
+ 
+ Pronto! seu repositório local está preparado e organizado
+ 
+ ## Atualizando o repositório local
+ 
+ Normalmente quando uma task é completada e o merge/rebase é feito com o development, o seu branch development local ficará desatualizado em relação ao principal, para resolver isso é necessário atualizar seu repositório local com alguns comandos
+ 
+   ```sh
+   git checkout development
+   ```
+   
+   ```sh
+   git pull
+   ```
+   
+Evite fazer branches sem atualizar o development local, pois atualizar evita o risco de conflitos na hora de realizar um pull-request.
+
+## Enviando alterações
+
+Para enviar as alterações é recomendavel explicar o que foi feito nelas quando se faz um commit, utilize este template para as alterações, sendo o corpo do commit opcional:
+
+   ```sh
+   (tipo do commit): "descrição"
+   ```
+   
+Também é possível incluir o nome do arquivo junto do template separados por uma barra (opcional):
+   
+   ```sh
+   (tipo do commit /nome do arquivo): "descrição"
+   ```
+
+Após tudo pronto, pode enviar seu novo branch com as alterações utilizando o push
+
+   ```sh
+   git push
+   ```
+   
+É comum o git pedir para você definir a upstream, simplemente digite o comando que o git mostrar na tela, no nosso caso será este:
+
+   ```sh
+   git push --set-upstream origin (nome do branch criado)
+   ```
+   
+Pronto! código enviado!
+
+# Framework utilizado
+
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 ## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects.
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
 ## Code of Conduct
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 

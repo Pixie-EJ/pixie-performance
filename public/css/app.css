@@ -99,6 +99,81 @@
   color: #0984E3;
 }
 
+.toast-success {
+  background-color: #008f72fa !important;
+  opacity: 1 !important;
+}
+
+.sidebar {
+  min-height: 100%;
+  width: 20%;
+}
+
+.sidebar ul li {
+  font-size: 24px;
+}
+
+li {
+  list-style: none;
+}
+
+.li-active {
+  background-color: #636E72;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.card-home-title { 
+  font-size: 12px !important;
+}
+
+.card-home-subtitle { 
+  font-size: 20px !important;
+}
+
+.sidebar-list li:hover {
+  background-color: #00B894;
+}
+
+.fa-arrow-left {
+  transform: scale(1.5);
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    visibility: hidden;
+    margin-top: 0px;
+    height: 0;
+    width: 100%;
+  }
+
+  .sidebar-container {
+    flex-direction: column;
+  }
+
+  .sidebar-active {
+    height: auto;
+    visibility:visible;
+  }
+
+  .sidebar ul li {
+    font-size: 18px;
+  }
+
+  .card-home-title { 
+    font-size: 10px !important;
+  }
+
+  .card-home-subtitle { 
+    font-size: 14px !important;
+  }
+
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -232,7 +307,6 @@ a {
 
 a:hover {
   color: #1d68a7;
-  text-decoration: underline;
 }
 
 a:not([href]):not([class]) {
@@ -2850,7 +2924,7 @@ fieldset:disabled a.btn {
 .btn-success:not(:disabled):not(.disabled):active:focus,
 .btn-success:not(:disabled):not(.disabled).active:focus,
 .show > .btn-success.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(86, 202, 135, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(86, 202, 135);
 }
 
 .btn-info {

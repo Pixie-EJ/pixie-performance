@@ -5,5 +5,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('events', EventController::class);
 
-Route::get('/home', 'HomeController@index')->name('home');
+});
+
+
