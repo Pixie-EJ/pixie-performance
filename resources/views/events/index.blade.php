@@ -47,7 +47,7 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <button class="btn btn-primary dropdown-item" type="button" data-toggle="modal" data-target="#showEventModal">Visualizar evento</button>
                                     <a href="{{ route('events.edit', $event->id) }}" class="btn btn-primary dropdown-item">Editar evento</a>
-                                    <a class="btn btn-primary dropdown-item" role="button" data-toggle="modal" data-target="#deleteEventModal" onclick="eventDelete({{ $event->id }})" >Excluir evento</a>
+                                    <a id="deleteEventButton" class="btn btn-primary dropdown-item" role="button" data-toggle="modal" data-target="#deleteEventModal" data-url="{{route('events.destroy', $event->id)}}">Excluir evento</a>
                                 </div>
                             </td>
                         </tr>
@@ -86,8 +86,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="deleteEventModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="event-id-delete"></h5>
@@ -110,12 +110,18 @@
 @endsection
 
 @section('scripts')
-    @if (!empty($mensagem))
+    @if (!empty($msgCreate))
         <script>
             toastr.success('Evento criado com sucesso!')
         </script>
     @endif
+    @if (!empty($msgDelete))
+        <script>
+            toastr.success('Evento excluído com sucesso!')
+        </script>
+    @endif
     <script>
+
         function viewEvent(event) {
             document.getElementById('event-id').innerHTML = "Evento #" + event.id
             document.getElementById('event-name').innerHTML = event.name
@@ -126,15 +132,14 @@
             document.getElementById('event-id-delete').innerHTML = "Tem certeza que deseja excluir o evento " + event.id + "?"
         }
 
-        function eventDelete(id){
-           alert(id)
-           let route1 = "{{route("+"'"+"events.destroy"+"'"+","
-           let route2 = ")}}"
-           let finalRoute = route1 + id + route2;
+        $(document).click(function (e) {
+            if($(e.target).is('#deleteEventButton')) {
+                let target = $(e.target)
+                let route = target.data('url')
+                $('#eventDeleteForm').attr("action", route)
+            }
+        })
 
-           alert(finalRoute)
-           $('#eventDeleteForm').attr("action", finalRoute)
-        }
     </script>
 @endsection
 
