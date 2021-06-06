@@ -7,8 +7,9 @@
             <h2 class="ml-2 mt-2">Editar evento</h2>
         </div>
         <div class="mx-3">
-            <form id="event-form" method="POST" action="{{ route('events.store') }}">
+            <form id="event-form" method="POST" action="{{ route('events.update', ['event'=> $event->id]) }}">
                 @csrf
+                @method('PUT')
                 <div class="form-group col-md-8 col-sm-12">
                   <label>Nome do evento*</label>
                   <input 
@@ -67,7 +68,7 @@
                     <a href="{{ route('events.index') }}" class="btn btn-lg bg-red mr-2">
                         <h5 class="m-0 color-light">Cancelar</h5>
                     </a>
-                    <button type="submit" class="btn btn-lg bg-green">
+                    <button  type="submit" class="btn btn-lg bg-green">
                         <h5 class="m-0 color-light">Salvar</h5>
                     </button>
                 </div>
