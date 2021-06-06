@@ -120,6 +120,11 @@
             toastr.success('Evento excluído com sucesso!')
         </script>
     @endif
+    @if (!empty($msgUpdate))
+        <script>
+            toastr.success('Evento editado com sucesso!')
+        </script>
+    @endif
     <script>
 
         function viewEvent(event) {

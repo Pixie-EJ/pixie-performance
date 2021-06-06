@@ -19,7 +19,8 @@ class EventController extends Controller
             ->get();
         $msgCreate = $request->session()->get('msgCreate');
         $msgDelete = $request->session()->get('msgDelete');
-        return view('events.index', compact('events', 'msgCreate', 'msgDelete'));
+        $msgUpdate = $request->session()->get('msgUpdate');
+        return view('events.index', compact('events', 'msgCreate', 'msgDelete', 'msgUpdate'));
     }
 
     /**
@@ -73,10 +74,12 @@ class EventController extends Controller
      */
     public function edit($id)
     {
+        $event = \App\Event::findOrFail($id);
         $categories = Categories::query()
             ->orderBy('name', 'asc')
             ->get();
-        return view('events.edit', compact('categories'));
+        
+        return view('events.edit', compact('event','categories'));
     }
 
     /**
@@ -88,6 +91,18 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->all();
+        $event = \App\Event::findOrFail($id);
+
+        try{
+            $event->update($data);
+
+        }catch(QueryException $exception){
+            $msg = 'erro';
+            return redirect()->back()->with("msgUpdateError","Falha na edição do evento");
+        }
+
+        return redirect()->route('events.index')->with("msgUpdate","Evento editado com sucesso");
         
     }
 
