@@ -120,12 +120,17 @@
             toastr.success('Evento criado com sucesso!')
         </script>
     @endif
+    
     @if (!empty($msgDelete))
         <script>
             toastr.success('Evento excluído com sucesso!')
         </script>
     @endif
+    
+    @if (!empty($msgUpdate))
+        <script>
+            toastr.success('Evento editado com sucesso!')
+        </script>
+    @endif
 
 @endsection
-
-
