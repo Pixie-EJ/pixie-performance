@@ -117,18 +117,27 @@
 
     @if (!empty($msgCreate))
         <script>
+            toastr.options = {
+                "positionClass": "toast-bottom-right",
+                }   
             toastr.success('Evento criado com sucesso!')
         </script>
     @endif
     
     @if (!empty($msgDelete))
         <script>
+            toastr.options = {
+                "positionClass": "toast-bottom-right",
+                }   
             toastr.success('Evento excluído com sucesso!')
         </script>
     @endif
     
     @if (!empty($msgUpdate))
         <script>
+            toastr.options = {
+                "positionClass": "toast-bottom-right",
+                }   
             toastr.success('Evento editado com sucesso!')
         </script>
     @endif
