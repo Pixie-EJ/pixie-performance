@@ -9,4 +9,8 @@ class Event extends Model
 {
     use SoftDeletes;
     protected $fillable = ['name','description','started_at','ended_at', 'categories_id'];
+    protected $casts = [
+        'started_at' => 'datetime:Y-m-d H:i',
+        'ended_at' => 'datetime:Y-m-d H:i',
+    ];
 }
