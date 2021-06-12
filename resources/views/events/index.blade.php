@@ -33,7 +33,7 @@
                             <td>{{ date("d/m/Y H:i", strtotime($event->started_at)) }}</td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->ended_at)) }}</td>
                             <td class="text-center dropdown">
-                                <button onclick="viewEvent({{ $event }})" type="button" class="btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button onclick="viewEvent({{ $event }}, {{ $event->categories }})" type="button" class="btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-ellipsis-h"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -64,7 +64,7 @@
                 <label id="event-name"></label>
                 <h5 class="m-0"><b>Descrição</b></h5>
                 <label id="event-description"></label>
-                <h5 class="m-0"><b>ID da categoria</b></h5>
+                <h5 class="m-0"><b>Nome da categoria</b></h5>
                 <label id="event-category"></label>
                 <h5 class="m-0"><b>Data inicial</b></h5>
                 <label id="event-date-start"></label>
@@ -108,17 +108,18 @@
     <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
 
     <script>//exibir infos no modal
-        function viewEvent(event) {
+        function viewEvent(event, category) {
             let eventStartDate = convertDate(event.started_at)
             let eventEndDate = convertDate(event.ended_at)
             document.getElementById('event-id').innerHTML = "Evento #" + event.id
             document.getElementById('event-name').innerHTML = event.name
             document.getElementById('event-description').innerHTML = event.description
-            document.getElementById('event-category').innerHTML = event.categories_id
+            document.getElementById('event-category').innerHTML = category.name
             document.getElementById('event-date-start').innerHTML = eventStartDate
             document.getElementById('event-date-end').innerHTML = eventEndDate
             document.getElementById('event-id-delete').innerHTML = "Tem certeza que deseja excluir o evento " + event.id + "?"
         }
+
 
         //converter data do modal
         function convertDate(date) {
