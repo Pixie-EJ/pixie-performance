@@ -87,6 +87,8 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+        $data['started_at'] = new \DateTime($data['started_at']);
+        $data['ended_at'] = new \DateTime($data['ended_at']);
         $event = \App\Event::findOrFail($id);
 
         try{
