@@ -115,26 +115,7 @@
     <script src="{{ asset('js/datatables/datatables-events.js') }}" defer></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
 
-    @if (!empty($msgCreate))
-        <script>
-            toastr.success('Evento criado com sucesso!')
-        </script>
-    @endif
-    
-    @if (!empty($msgDelete))
-        <script>
-            toastr.success('Evento excluído com sucesso!')
-        </script>
-    @endif
-    
-    @if (!empty($msgUpdate))
-        <script>
-            toastr.success('Evento editado com sucesso!')
-        </script>
-    @endif
-
-    <script>
-        //exibir infos no modal
+    <script>//exibir infos no modal
         function viewEvent(event) {
             let eventStartDate = convertDate(event.started_at)
             let eventEndDate = convertDate(event.ended_at)
@@ -162,5 +143,4 @@
             }
         })
     </script>
-
 @endsection

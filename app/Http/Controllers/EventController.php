@@ -47,12 +47,7 @@ class EventController extends Controller
         // $category = $request->get('categories_id');
         $data = $request->all();
         $event = Event::create($data);
-        $request->session()
-            ->flash(
-                'msgCreate',
-                "Evento criado com sucesso!"
-            );
-        return redirect()->route('events.index');
+        return redirect()->route('events.index')->with("success_toastr","Evento criado com sucesso!");
     }
 
     /**
@@ -101,10 +96,10 @@ class EventController extends Controller
 
         }catch(QueryException $exception){
             $msg = 'erro';
-            return redirect()->back()->with("msgUpdateError","Falha na edição do evento");
+            return redirect()->back()->with("error_toastr","Erro na edição do evento!");
         }
 
-        return redirect()->route('events.index')->with("msgUpdate","Evento editado com sucesso");
+        return redirect()->route('events.index')->with("success_toastr","Evento editado com sucesso!");
         
     }
 
@@ -118,7 +113,7 @@ class EventController extends Controller
     {
         $event = \App\Event::findOrFail($event);
         $event->delete();
-        return redirect()->route('events.index')->with("msgDelete","Evento excluido com sucesso");
+        return redirect()->route('events.index')->with("success_toastr","Evento excluido com sucesso!");
     }
 
 }

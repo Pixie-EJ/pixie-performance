@@ -48,5 +48,21 @@
     
     @yield('scripts')
 
+    @if (Session::has('success_toastr'))
+    <script>         
+        toastr.options.positionClass = 'toast-bottom-right';
+        toastr.options.showMethod = 'slideDown';
+        toastr.success("{!!Session::get('success_toastr')!!}");      
+    </script>
+    @endif
+    
+    @if (Session::has('error_toastr'))
+    <script>
+        toastr.options.positionClass = 'toast-bottom-right';
+        toastr.options.showMethod = 'slideDown';
+        toastr.error("{!!Session::get('error_toastr')!!}");    
+    </script>
+    @endif
+
 </body>
 </html>
