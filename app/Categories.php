@@ -14,4 +14,8 @@ class Categories extends Model
     {
         return $this->hasMany('App\Enterprise');
     }
+    public function events()
+    {
+        return $this->hasMany('App\Event');
+    }
 }
