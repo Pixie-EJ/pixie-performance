@@ -32,8 +32,7 @@
                       id="description"
                       maxlength="255"
                       required
-                    >{{ $event->description }}
-                    </textarea>
+                    >{{ $event->description }}</textarea>
                   </div>
                 <div class="form-group col-md-6 col-sm-12">
                     <label>Início*</label>
