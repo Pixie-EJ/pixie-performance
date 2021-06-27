@@ -6,33 +6,31 @@
             <a href=""><i class="mx-2 fas fa-arrow-left color-black"></i></a>
             <h2 class="ml-2 mt-2">Lançar pontos</h2>
         </div>
-        <div class="mx-3">
-            <form id="event-form" method="POST" action="{{ route('events.store') }}">
+        <div class="mx-3 d-flex justify-content-center">
+            <form class="d-flex justify-content-center flex-column" id="event-form" method="POST" action="{{ route('events.store') }}">
                 @csrf
                 <div class="d-flex flex-row">
-                    <div class="form-group col-md-6 col-sm-12">
-                        <div class="d-flex flex-row w-100">
-                            <div class="d-flex flex-column w-100">
-                                <label>Evento*</label>
-                                <select name="categories_id" class="form-control col-md-6 col-sm-12" required>
-                                    <option value=""></option>
-                                </select>
-                            </div>
+                    <div class="form-group col-6">
+                        <div class="d-flex flex-column">
+                            <label>Evento*</label>
+                            <select name="categories_id" class="form-control w-100" required>
+                                <option value=""></option>
+                            </select>
                         </div>
                     </div>
-                    <div class="form-group col-md-6 col-sm-12">
+                    <div class="form-group col-6">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column w-100">
                                 <label>Regra Pontuação*</label>
-                                <select name="categories_id" class="form-control col-md-6 col-sm-12" required>
+                                <select name="categories_id" class="form-control" required>
                                     <option value=""></option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive table-overflow shadow-sm mt-3">
-                    <table id="events-table" class="display table table-bordered">
+                <div class="table-responsive table-overflow shadow-sm mt-4">
+                    <table id="score-table" class="display table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">Nome</th>
@@ -41,16 +39,30 @@
                         </thead>
                         <tbody data-page-length='8'>
                             <tr>
-                                <td class="d-flex flex-row align-items-start">
-                                    <input class="mt-1 mx-2" type="checkbox"/>
-                                    <p class="mt-0 p-0">Eduardo Saito</p>
+                                <td class="">
+                                    <div class="d-flex">
+                                        <input type="checkbox">
+                                        <p class="p-0 m-0 mx-2">Eduardo Saito</p>
+                                    </div> 
                                 </td>
-                                <td>
-                                    <input class="text-center" type="text">
+                                <td class="d-flex justify-content-center align-items-center">
+                                    <input type="text" class="text-center w-50"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="">
+                                    <div class="d-flex">
+                                        <input type="checkbox">
+                                        <p class="p-0 m-0 mx-2">Eduardo Saito</p>
+                                    </div> 
+                                </td>
+                                <td class="d-flex justify-content-center align-items-center">
+                                    <input type="text" class="text-center w-50"/>
                                 </td>
                             </tr>
                         </tbody>
-                    </table> 
+                    </table>
+                </div>
             </div>
             <div class="d-flex justify-content-end mt-4">
                 <a href="" class="btn btn-lg bg-red mr-2">
