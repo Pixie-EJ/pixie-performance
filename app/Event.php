@@ -17,6 +17,11 @@ class Event extends Model
 
     public function categories()
     {
-       return $this->belongsTo('App\Categories');
+       return $this->belongsTo('App\Category');
+    }
+
+    public function members()
+    {
+        return $this->belongsToMany('App\Member');
     }
 }
