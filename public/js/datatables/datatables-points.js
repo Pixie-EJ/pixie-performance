@@ -1,5 +1,5 @@
 $(document).ready( function () {
-    $('#events-table').DataTable({
+    $('#score-table').DataTable({
         scrollY: "400px",
         columnDefs: [
             { orderable: false, targets: [1]},
