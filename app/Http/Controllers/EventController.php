@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Categories;
+use App\Category;
 use App\Event;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,8 @@ class EventController extends Controller
             ->get();
         $msgCreate = $request->session()->get('msgCreate');
         $msgDelete = $request->session()->get('msgDelete');
-        return view('events.index', compact('events', 'msgCreate', 'msgDelete'));
+        $msgUpdate = $request->session()->get('msgUpdate');
+        return view('events.index', compact('events', 'msgCreate', 'msgDelete', 'msgUpdate'));
     }
 
     /**
@@ -29,7 +30,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        $categories = Categories::query()
+        $categories = Category::query()
             ->orderBy('name', 'asc')
             ->get();
         return view('events.create', compact('categories'));
@@ -46,12 +47,7 @@ class EventController extends Controller
         // $category = $request->get('categories_id');
         $data = $request->all();
         $event = Event::create($data);
-        $request->session()
-            ->flash(
-                'msgCreate',
-                "Evento criado com sucesso!"
-            );
-        return redirect()->route('events.index');
+        return redirect()->route('events.index')->with("success_toastr","Evento criado com sucesso!");
     }
 
     /**
@@ -73,10 +69,12 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        $categories = Categories::query()
+        $event = \App\Event::findOrFail($id);
+        $categories = Category::query()
             ->orderBy('name', 'asc')
             ->get();
-        return view('events.edit', compact('categories'));
+
+        return view('events.edit', compact('event','categories'));
     }
 
     /**
@@ -88,7 +86,21 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $data = $request->all();
+        $data['started_at'] = new \DateTime($data['started_at']);
+        $data['ended_at'] = new \DateTime($data['ended_at']);
+        $event = \App\Event::findOrFail($id);
+
+        try{
+            $event->update($data);
+
+        }catch(QueryException $exception){
+            $msg = 'erro';
+            return redirect()->back()->with("error_toastr","Erro na edição do evento!");
+        }
+
+        return redirect()->route('events.index')->with("success_toastr","Evento editado com sucesso!");
+
     }
 
     /**
@@ -101,7 +113,7 @@ class EventController extends Controller
     {
         $event = \App\Event::findOrFail($event);
         $event->delete();
-        return redirect()->route('events.index')->with("msgDelete","Evento excluido com sucesso");
+        return redirect()->route('events.index')->with("success_toastr","Evento excluido com sucesso!");
     }
 
 }

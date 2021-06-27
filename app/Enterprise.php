@@ -14,4 +14,13 @@ class Enterprise extends Model
     {
         return $this->hasMany('App\User');
     }
+
+    public function members()
+    {
+        return $this->hasMany('App\Member');
+    }
+    public function rules()
+    {
+        return $this->hasMany('App\Rule');
+    }
 }
