@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Categories;
+use App\Category;
 use App\Event;
 use Illuminate\Http\Request;
 
@@ -30,7 +30,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        $categories = Categories::query()
+        $categories = Category::query()
             ->orderBy('name', 'asc')
             ->get();
         return view('events.create', compact('categories'));
@@ -70,10 +70,10 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = \App\Event::findOrFail($id);
-        $categories = Categories::query()
+        $categories = Category::query()
             ->orderBy('name', 'asc')
             ->get();
-        
+
         return view('events.edit', compact('event','categories'));
     }
 
@@ -100,7 +100,7 @@ class EventController extends Controller
         }
 
         return redirect()->route('events.index')->with("success_toastr","Evento editado com sucesso!");
-        
+
     }
 
     /**
