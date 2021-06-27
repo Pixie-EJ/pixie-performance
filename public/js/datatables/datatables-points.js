@@ -2,6 +2,7 @@ $(document).ready( function () {
     $('#score-table').DataTable({
         scrollY: "400px",
         columnDefs: [
+            { "sWidth": "150px", "aTargets": [1] },
             { orderable: false, targets: [1]},
             { type: "chinese-string", targets: [0] }
         ],
