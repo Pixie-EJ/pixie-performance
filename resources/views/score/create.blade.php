@@ -41,7 +41,7 @@
                             <tr>
                                 <td class="">
                                     <div class="d-flex">
-                                        <input type="checkbox">
+                                        <input type="checkbox" checked>
                                         <p class="p-0 m-0 mx-2">Eduardo Saito</p>
                                     </div> 
                                 </td>
@@ -52,7 +52,7 @@
                             <tr>
                                 <td class="">
                                     <div class="d-flex">
-                                        <input type="checkbox">
+                                        <input type="checkbox" checked>
                                         <p class="p-0 m-0 mx-2">Eduardo Saito</p>
                                     </div> 
                                 </td>
