@@ -18,4 +18,8 @@ class Category extends Model
     {
         return $this->hasMany('App\Event');
     }
+    public function rules()
+    {
+        return $this->belongsToMany('App\Rule');
+    }
 }
