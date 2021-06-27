@@ -4,9 +4,9 @@
     <div class="container mb-5">
         <div class="d-flex justify-content-between">
             <h2 class="py-4">Home</h2>
-            <button class="btn bg-blue my-4">
-                <span class="color-light">Lançar pontos</span>    
-            </button>
+            <a href="{{ route('score.create') }}" class="btn bg-blue my-4 d-flex align-items-center">
+                <span class="color-light m-0 p-0">Lançar pontos</span>
+            </a>
         </div>
         <div class="row justify-content-around mx-3">
             <div class="col-sm-3 col-xs-4 my-1 card border-0 p-3">
