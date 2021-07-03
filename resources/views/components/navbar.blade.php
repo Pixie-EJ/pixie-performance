@@ -4,7 +4,7 @@
         <button class="navbar-toggler border-0" onclick="sidebarToggle()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="{{ url('/') }}">
+        <a>
             <img src="{{ asset('assets/pixie-logo-sm-white.svg') }}" style="width: 60%"/>
         </a>          
         <div>
