@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mb-4">
         <div class="d-flex flex-column p-3">
-            <a href=""><i class="mx-2 fas fa-arrow-left color-black"></i></a>
+            <a href="{{ route('home') }}"><i class="mx-2 fas fa-arrow-left color-black"></i></a>
             <h2 class="ml-2 mt-2">Lançar pontos</h2>
         </div>
         <div>
@@ -85,12 +85,17 @@
                         <h5 class="m-0 color-light">Salvar</h5>
                     </button>
                 </div>
-
-            </form>
+            </div>
+            <div class="d-flex justify-content-end mt-4">
+                <a href="{{ route('home') }}" class="btn btn-lg bg-red mr-2">
+                    <h5 class="m-0 color-light">Cancelar</h5>
+                </a>
+                <button type="submit" class="btn btn-lg bg-green">
+                    <h5 class="m-0 color-light">Salvar</h5>
+                </button>
+            </div>
+            </form>  
         </div>
-
-    </div>
-    
  @endsection
 
  @section('scripts')
