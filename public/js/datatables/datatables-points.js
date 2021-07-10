@@ -7,6 +7,7 @@ $(document).ready( function () {
             { type: "chinese-string", targets: [0] }
         ],
         order: [[1, "asc"]],
+        bPaginate: false,
         language: {
             url:
                 "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
