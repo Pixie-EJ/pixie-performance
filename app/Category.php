@@ -22,4 +22,9 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Rule');
     }
+    public function scores()
+    {
+        return $this->hasMany('App\Score');
+    }
+
 }
