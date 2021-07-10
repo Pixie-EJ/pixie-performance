@@ -19,4 +19,9 @@ class Member extends Model
     {
         return $this->belongsToMany('App\Event');
     }
+    public function scores()
+    {
+        return $this->hasMany('App\Score');
+    }
+
 }

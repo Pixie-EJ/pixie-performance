@@ -24,5 +24,9 @@ class Event extends Model
     {
         return $this->belongsToMany('App\Member');
     }
-    
+    public function scores()
+    {
+        return $this->hasMany('App\Score');
+    }
+
 }
