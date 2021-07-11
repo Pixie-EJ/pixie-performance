@@ -21,7 +21,7 @@
                                 <select name="events_id" class="form-control w-100" required>
                                 @foreach ($events as $event)
                                     <option value="{{ $event->id }}">{{ $event->name }}</option>
-                                 @endforeach
+                                @endforeach
                                 </select>
                             </div>
                         </div>
@@ -30,7 +30,9 @@
                                 <div class="d-flex flex-column w-100">
                                     <label>Regra Pontuação*</label>
                                     <select name="categories_id" class="form-control" required>
-                                        <option value=""></option>
+                                    @foreach ($rules as $rule)
+                                        <option value="{{ $rule->id }}">{{ $rule->name }}</option>
+                                    @endforeach
                                     </select>
                                 </div>
                             </div>
