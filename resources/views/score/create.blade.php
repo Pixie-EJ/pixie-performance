@@ -18,8 +18,10 @@
                         <div class="form-group col-5 p-0">
                             <div class="d-flex flex-column">
                                 <label>Evento*</label>
-                                <select name="categories_id" class="form-control w-100" required>
-                                    <option value=""></option>
+                                <select name="events_id" class="form-control w-100" required>
+                                @foreach ($events as $event)
+                                    <option value="{{ $event->id }}">{{ $event->name }}</option>
+                                 @endforeach
                                 </select>
                             </div>
                         </div>
