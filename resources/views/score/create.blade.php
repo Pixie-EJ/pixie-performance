@@ -77,15 +77,6 @@
 
                 </div>
 
-                <div class="d-flex justify-content-end mt-4 mr-2">
-                    <a href="" class="btn btn-lg bg-red mr-2">
-                        <h5 class="m-0 color-light">Cancelar</h5>
-                    </a>
-                    <button type="submit" class="btn btn-lg bg-green">
-                        <h5 class="m-0 color-light">Salvar</h5>
-                    </button>
-                </div>
-            </div>
             <div class="d-flex justify-content-end mt-4">
                 <a href="{{ route('home') }}" class="btn btn-lg bg-red mr-2">
                     <h5 class="m-0 color-light">Cancelar</h5>
