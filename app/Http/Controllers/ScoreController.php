@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Rule;
+use App\RuleCategory;
 
 class ScoreController extends Controller
 {
@@ -28,10 +29,24 @@ class ScoreController extends Controller
         $events = Event::query()
             ->orderBy('started_at', 'desc')
             ->get();
-        $rules = Rule::query()
-        ->orderBy('point')
-        ->get();
-        return view('score.create',compact('events','rules'));
+        
+        return view('score.create',compact('events'));
+    }
+
+    public function findRuleWithCategoryId($id)
+    {
+        $rules = array();
+
+        $rulesCategories = RuleCategory::where('categories_id',$id)->get();
+        
+        
+        foreach($rulesCategories as $rp)
+        {
+            $rule = Rule::where('id',$rp->rules_id)->get();
+            array_push($rules,$rule);
+        }
+
+        return response()->json($rules);
     }
 
     /**
