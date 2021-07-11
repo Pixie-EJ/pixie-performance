@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class ScoreController extends Controller
 {
@@ -23,7 +24,10 @@ class ScoreController extends Controller
      */
     public function create()
     {
-        return view('score.create');
+        $events = Event::query()
+            ->orderBy('started_at', 'desc')
+            ->get();
+        return view('score.create',compact('events'));
     }
 
     /**
