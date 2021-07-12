@@ -64,7 +64,7 @@
                     </select>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-lg bg-green">
+                    <button onclick="this.disabled = true; this.form=submit();" class="btn btn-lg bg-green">
                         <h5 class="m-0 color-light">Salvar</h5>
                     </button>
                 </div>
