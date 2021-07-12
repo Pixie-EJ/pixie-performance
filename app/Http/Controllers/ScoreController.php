@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Member;
 
 class ScoreController extends Controller
 {
@@ -27,7 +28,8 @@ class ScoreController extends Controller
         $events = Event::query()
             ->orderBy('started_at', 'desc')
             ->get();
-        return view('score.create',compact('events'));
+        $members = Member::query()->get();
+        return view('score.create',compact('events','members'));
     }
 
     /**

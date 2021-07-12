@@ -48,28 +48,21 @@
                                     </tr>
                                 </thead>
                                 <tbody data-page-length='8'>
+                                    @foreach ($members as $member)
                                     <tr>
+                                         
                                         <td class="">
                                             <div class="d-flex">
-                                                <input type="checkbox" checked>
-                                                <p class="p-0 m-0 mx-2">Eduardo Saito</p>
+                                                <input type="checkbox" checked>                                              
+                                                <p class="p-0 m-0 mx-2">{{$member->name}}</p>
                                             </div> 
                                         </td>
                                         <td class="d-flex justify-content-center align-items-center">
                                             <input type="text" class="text-center w-50"/>
                                         </td>
+                                        
                                     </tr>
-                                    <tr>
-                                        <td class="">
-                                            <div class="d-flex">
-                                                <input type="checkbox" checked>
-                                                <p class="p-0 m-0 mx-2">Eduardo Saito</p>
-                                            </div> 
-                                        </td>
-                                        <td class="d-flex justify-content-center align-items-center">
-                                            <input type="text" class="text-center w-50"/>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div> 
@@ -92,8 +85,8 @@
  @endsection
 
  @section('scripts')
-    <script src="{{ asset('js/datatables/datatables.min.js') }}" defer></script>
-    <script src="{{ asset('js/datatables/datatables-plugins.js') }}" defer></script>
-    <script src="{{ asset('js/datatables/datatables-points.js') }}" defer></script>
-    <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
+    <script type="application/javascript" src="{{ asset('js/datatables/datatables.min.js') }}" defer></script>
+    <script type="application/javascript" src="{{ asset('js/datatables/datatables-plugins.js') }}" defer></script>
+    <script type="application/javascript" src="{{ asset('js/datatables/datatables-points.js') }}" defer></script>
+    <script type="application/javascript" src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
  @endsection
