@@ -23,12 +23,13 @@
                         </tr>
                     </thead>
                     <tbody data-page-length='8'>
+
                         @foreach ($events as $event)
                         <tr>
                             <th scope="row">{{ $event->id }}</th>
                             <td>{{ $event->name }}</td>
                             <td>
-                                {{$event->categories->name}}
+                                {{ $event->categories->name }}
                             </td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->started_at)) }}</td>
                             <td>{{ date("d/m/Y H:i", strtotime($event->ended_at)) }}</td>
@@ -48,7 +49,7 @@
                 </table>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div class="modal fade" id="showEventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -98,7 +99,7 @@
           </div>
         </div>
     </div>
-    
+
 @endsection
 
 @section('scripts')

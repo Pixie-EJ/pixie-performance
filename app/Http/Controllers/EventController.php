@@ -17,10 +17,7 @@ class EventController extends Controller
         $events = Event::query()
             ->orderBy('started_at', 'desc')
             ->get();
-        $msgCreate = $request->session()->get('msgCreate');
-        $msgDelete = $request->session()->get('msgDelete');
-        $msgUpdate = $request->session()->get('msgUpdate');
-        return view('events.index', compact('events', 'msgCreate', 'msgDelete', 'msgUpdate'));
+        return view('events.index', compact('events'));
     }
 
     /**
