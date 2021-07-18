@@ -47,35 +47,26 @@
                                     </tr>
                                 </thead>
                                 <tbody data-page-length='8'>
+                                    @foreach ($members as $member)
                                     <tr>
+                                         
                                         <td class="">
                                             <div class="d-flex">
-                                                <input type="checkbox" checked>
-                                                <p class="p-0 m-0 mx-2">Eduardo Saito</p>
+                                                <input type="checkbox" checked>                                              
+                                                <p class="p-0 m-0 mx-2">{{$member->name}}</p>
                                             </div> 
                                         </td>
                                         <td class="d-flex justify-content-center align-items-center">
                                             <input type="text" class="text-center w-50"/>
                                         </td>
+                                        
                                     </tr>
-                                    <tr>
-                                        <td class="">
-                                            <div class="d-flex">
-                                                <input type="checkbox" checked>
-                                                <p class="p-0 m-0 mx-2">Eduardo Saito</p>
-                                            </div> 
-                                        </td>
-                                        <td class="d-flex justify-content-center align-items-center">
-                                            <input type="text" class="text-center w-50"/>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div> 
                     </div>
-
                     </div>
-
                 </div>
 
             <div class="d-flex justify-content-end mt-4">
@@ -125,7 +116,4 @@
         });
     });
     </script>
-    
  @endsection
-
- 
