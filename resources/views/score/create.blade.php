@@ -18,10 +18,10 @@
                         <div class="form-group col-5 p-0">
                             <div class="d-flex flex-column">
                                 <label>Evento*</label>
-                                <select name="events_id" class="form-control w-100" required>
+                                <select id="events" name="events_id" class="form-control w-100" required>
                                 @foreach ($events as $event)
-                                    <option value="{{ $event->id }}">{{ $event->name }}</option>
-                                 @endforeach
+                                    <option value="{{ $event->categories_id }}">{{ $event->name }}</option>
+                                @endforeach
                                 </select>
                             </div>
                         </div>
@@ -29,8 +29,7 @@
                             <div class="d-flex flex-row">
                                 <div class="d-flex flex-column w-100">
                                     <label>Regra Pontuação*</label>
-                                    <select name="categories_id" class="form-control" required>
-                                        <option value=""></option>
+                                    <select  id="rules" name="rules_id" class="form-control" required>
                                     </select>
                                 </div>
                             </div>
@@ -67,9 +66,7 @@
                             </table>
                         </div> 
                     </div>
-
                     </div>
-
                 </div>
 
             <div class="d-flex justify-content-end mt-4">
@@ -89,4 +86,34 @@
     <script type="application/javascript" src="{{ asset('js/datatables/datatables-plugins.js') }}" defer></script>
     <script type="application/javascript" src="{{ asset('js/datatables/datatables-points.js') }}" defer></script>
     <script type="application/javascript" src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function() {
+        $('#events').on('change', function() {
+            var categories_id = $(this).val();
+            if(categories_id) {
+                $.ajax({
+                    url: '/findRuleWithCategoryId/'+categories_id,
+                    type: "GET",
+                    data : {"_token":"{{ csrf_token() }}"},
+                    dataType: "json",
+                    success:function(data) {
+                    console.log(data);
+                    if(data){
+                        $('#rules').empty();
+                        $('#rules').focus;
+                        $('#rules').append('<option value="">-- Selecione uma regra --</option>'); 
+                        $.each(data, function(key, value){
+                        $('select[name="rules_id"]').append('<option value="'+ key +'">' + value.name + '</option>');
+                    });
+                }else{
+                    $('#rules').empty();
+                }
+                }
+                });
+            }else{
+            $('#rules').empty();
+            }
+        });
+    });
+    </script>
  @endsection
