@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rule extends Model
 {
-    protected $fillable = ['point','name'];
+    protected $fillable = ['point','name','has_multiplier'];
 
     public function enterprises()
     {
@@ -15,6 +15,10 @@ class Rule extends Model
     public function categories()
     {
         return $this->belongsToMany('App\Category');
+    }
+    public function scores()
+    {
+        return $this->hasMany('App\Score');
     }
 
 }
