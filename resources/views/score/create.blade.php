@@ -7,7 +7,7 @@
             <h2 class="ml-2 mt-2">Lançar pontos</h2>
         </div>
         <div>
-            <form id="points-form" method="POST" action="">
+            <form id="points-form" method="POST" action="{{ route('score.store') }}">
                 @csrf
                 <div class="d-flex flex-column justify-content-center align-items-center">
 
@@ -50,17 +50,15 @@
                                     <tbody data-page-length='8'>
                                     @foreach ($members as $member)
                                         <tr>
-
-                                            <td class="">
+                                            <td>
                                                 <div class="d-flex">
-                                                    <input type="checkbox" checked>
-                                                    <p class="p-0 m-0 mx-2">{{$member->name}}</p>
+                                                    <input name="member_id_{{ $member->id }}" value="{{ $member->id }}" type="checkbox">
+                                                    <p class="p-0 m-0 mx-2">{{ $member->name }}</p>
                                                 </div>
                                             </td>
                                             <td class="d-flex justify-content-center align-items-center">
-                                                <input type="text" class="text-center w-50"/>
+                                                <input name="multiplier_value_{{ $member->id }}" type="text" class="text-center w-50">
                                             </td>
-
                                         </tr>
                                     @endforeach
                                     </tbody>
