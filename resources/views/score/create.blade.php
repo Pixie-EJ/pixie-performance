@@ -7,7 +7,7 @@
             <h2 class="ml-2 mt-2">Lançar pontos</h2>
         </div>
         <div>
-            <form id="points-form" method="POST" action="">
+            <form id="points-form" method="POST" action="{{route('score.store')}}">
                 @csrf
                 <div class="d-flex flex-column justify-content-center align-items-center">
 

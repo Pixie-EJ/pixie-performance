@@ -7,6 +7,7 @@ use App\Event;
 use App\Rule;
 use App\RuleCategory;
 use App\Member;
+use App\Score;
 
 class ScoreController extends Controller
 {
@@ -17,7 +18,7 @@ class ScoreController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -30,7 +31,7 @@ class ScoreController extends Controller
         $events = Event::query()
             ->orderBy('started_at', 'desc')
             ->get();
-      
+
         $members = Member::query()->get();
 
         return view('score.create',compact('events','members'));
@@ -40,8 +41,8 @@ class ScoreController extends Controller
     {
         $rules = array();
 
-        $rulesCategories = RuleCategory::where('categories_id',$id)->get();      
-        
+        $rulesCategories = RuleCategory::where('categories_id',$id)->get();
+
         foreach($rulesCategories as $rp)
         {
             $rule = Rule::where('id',$rp->rules_id)->get();
@@ -59,7 +60,9 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $score = Score::create($data);
+        return redirect()->route('score.index')->with("success_toastr","Pontuação lançada com sucesso!");
     }
 
     /**
