@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Score;
 use App\Event;
 use App\Rule;
 use App\RuleCategory;
@@ -45,7 +46,8 @@ class ScoreController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        $score = Score::create($data);
+        return redirect()->route('home')->with("success_toastr","Pontuação lançada com sucesso!");
     }
 
     public function show($id)
